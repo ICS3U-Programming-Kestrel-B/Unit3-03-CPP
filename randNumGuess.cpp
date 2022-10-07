@@ -8,20 +8,27 @@
 // based on a random correct answer
 
 #include <cstdlib>
-#include <ctime>
+//#include <ctime>
+#include <time.h>
+
+#include <cmath>
 #include <iostream>
+#include <random>
 
 int main() {
     // Declaring variables
     int userGuess, correctGuess;
 
     // initializing random seed
-    // srand(time, NULL);
+    std::random_device rseed;
 
-    // making correctGuess a random number from 0-9
-    correctGuess = (rand() % 9) + 1;
+    std::mt19937 rgen(rseed());
 
-    // correctGuess = rand_r() % 100 + 1;
+    // initializing random number code
+    std::uniform_int_distribution<int> idist(0, 9);
+
+    // making random number variable
+    correctGuess = idist(rgen);
 
     // Input
     std::cout << "This program asks for a number\n";
@@ -36,6 +43,8 @@ int main() {
         // output
         std::cout << "Your guess is correct!";
     } else {
-        std::cout << "Your guess is incorrect";
+        std::cout << "Your guess is incorrect.";
+        std::cout << "The correct number was ";
+        std::cout << correctGuess << ".\endl";
     }
 }
