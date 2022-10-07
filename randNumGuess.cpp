@@ -7,11 +7,10 @@
 // you if your guess was correct
 // based on a random correct answer
 
-#include <cstdlib>
-//#include <ctime>
 #include <time.h>
 
 #include <cmath>
+#include <cstdlib>
 #include <iostream>
 #include <random>
 
